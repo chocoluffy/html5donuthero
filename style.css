@@ -1,0 +1,235 @@
+body{
+	background: #000;
+	position: relative;
+	color: white
+}
+
+.overlay{
+	position: absolute;
+	top: 5%;
+	margin: 0 auto;
+	width: 1024px;
+	z-index: 1;
+}
+
+div.gamestart{
+	position: absolute;
+	left: 50%;
+	height: 100%;
+	width: 100%;
+	transform: translate(-50%, 50%);
+	margin: 12% auto;
+	z-index: 10;
+}
+
+div.gamestart div.text{
+	text-align: center;
+	font-size: 50px;
+}
+
+div.gamestart div.startpage{
+	margin: 10px;
+	text-align: center;
+	color: white;
+	font-size: 10px;
+	padding: 20px;
+}
+
+div.gamestart div.startpage a{
+	display: block;
+	margin: 20px;
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+}
+
+div.gamestart div.startpage a:hover{
+	color: #f6f0cc;
+}
+
+div.gameover{
+	position: absolute;
+	left: 50%;
+	height: 100%;
+	width: 100%;
+	transform: translate(-50%, 50%);
+	margin: 12% auto;
+	opacity: 0;
+}
+
+div.gameover div.text{
+	text-align: center;
+	font-size: 50px;
+}
+
+div.gameover div.link{
+	margin: 10px;
+	text-align: center;
+	color: white;
+	font-size: 10px;
+	padding: 20px;
+}
+
+div.gameover div.link a{
+	display: block;
+	margin: 20px;
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+}
+
+div.gameover div.link a:hover{
+	color: #f6f0cc;
+}
+
+div.seen{
+	opacity: 1;
+	z-index: 10;
+	transition: all 0.8s ease-in-out;
+}
+
+div.unseen{
+	opacity: 0;
+	z-index: -10;
+	transition: all 0.3s ease-in-out;
+}
+
+
+.bt{
+	background-color: #30ADAD;
+	width: 80px;
+	height: 80px;
+	left: 50%;
+	top: -15px;
+	position: relative;
+	margin: 0 10px;
+	border-radius: 45px;
+	cursor: pointer;
+	color: white;
+}
+.bt:before{
+	content: "";
+	position: absolute;
+	border: 25px solid white;
+    top: 18%;
+    left: 42%;
+    height: 0;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+	border-right: 0; 
+	-webkit-transition: all 250ms ease-in-out;
+	-moz-transition: all 250ms ease-in-out;
+	-ms-transition: all 250ms ease-in-out;
+	-o-transition: all 250ms ease-in-out;
+	transition: all 250ms ease-in-out;
+}
+.bt:after{
+	content: "";
+	position: absolute;
+	border: 25px solid white;
+    top: 18%;
+    left: 42%;
+    height: 0;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+	border-right: 0; 
+	-webkit-transition: all 250ms ease-in-out;
+	-moz-transition: all 250ms ease-in-out;
+	-ms-transition: all 250ms ease-in-out;
+	-o-transition: all 250ms ease-in-out;
+	transition: all 250ms ease-in-out;
+}
+.bt.active:before{
+	border: 7px solid white;
+    top: 5px;
+    left: -10px;
+    height: 30px;
+}
+
+.bt.active:after{
+	content: "";
+    position: absolute;
+    border: 7px solid white;
+    top: 5px;
+    left: 15px;
+    height: 30px;
+}
+
+
+.blob {
+    border: 2px solid #34B5DF;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    opacity: 0;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    
+    -webkit-transform: scale( 0.1 );
+    -moz-transform: scale( 0.1 );
+    -o-transform: scale( 0.1 );
+    transform: scale( 0.1 );
+    
+    -webkit-animation-delay: 0s, 0s;
+    -webkit-animation-duration: 850ms, 850ms;
+    -webkit-animation-name: grow, opaque;
+    
+    -moz-animation-delay: 0s, 0s;
+    -moz-animation-duration: 850ms, 850ms;
+    -moz-animation-name: grow, opaque;
+    
+    -o-animation-delay: 0s, 0s;
+    -o-animation-duration: 850ms, 850ms;
+    -o-animation-name: grow, opaque;
+    
+    animation-delay: 0s, 0s;
+    animation-duration: 850ms, 850ms;
+    animation-name: grow, opaque;
+}
+
+@-webkit-keyframes grow {
+  0% {-webkit-transform: scale( 0.1 );}
+  100% {-webkit-transform: scale(1.8);}
+}
+
+@-moz-keyframes grow {
+  0% {-moz-transform: scale( 0.1 );}
+  100% {-moz-transform: scale(1.8);}
+}
+
+@-o-keyframes grow {
+  0% {-o-transform: scale( 0.1 );}
+  100% {-o-transform: scale(1.8);}
+}
+
+@keyframes grow {
+  0% {transform: scale( 0.1 );}
+  100% {transform: scale(1.8);}
+}
+
+@-webkit-keyframes opaque {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
+
+@-moz-keyframes opaque {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
+
+@-o-keyframes opaque {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
+
+@keyframes opaque {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
