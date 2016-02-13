@@ -34,7 +34,7 @@ var reset = function () {
 };
 
 var init= function(){
-	createHeros();
+	// createHeros();
 	createDonuts();
 
 	var gamestartPlane = document.querySelector(".gamestart");
@@ -55,8 +55,10 @@ var init= function(){
 }
 
 
+
 // Update game objects
 var update = function (modifier) {
+
 
 	var hcount = heros.length;
 	var donutparticleCount = donuts.length;
@@ -115,11 +117,11 @@ var render = function () {
 	context.clearRect(0,0,canvas.width, canvas.height);
 	context.drawImage(bgImage, 0, 0);
 
-	// var i = particles.length;
-	// while(i--){
-	// 	particles[i].draw();
-	// 	particles[i].update(i);
-	// }
+	var i = particles.length;
+	while(i--){
+		particles[i].draw();
+		particles[i].update(i);
+	}
 
 	var h = heros.length;
 	while(h--){
@@ -194,6 +196,8 @@ var main = function () {
 
 	requestAnimationFrame(main);
 };
+
+setInterval(createHeros, 1000);
 
 // Cross-browser support for requestAnimationFrame
 var w = window;
