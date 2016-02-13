@@ -159,6 +159,11 @@ var main = function () {
 				hue +=0.5;
 				if(timeCount%60==0){
 					timeRemained--;
+					// User counter to check whether to create a bug every second
+					// 1/3 chance per second, not the same as uniform 1-3 sec
+					if (Math.random()*3 < 1) {
+						createHeros();
+					}
 				}
 				if(timeRemained<=0){
 					gameOver = true;
@@ -197,7 +202,8 @@ var main = function () {
 	requestAnimationFrame(main);
 };
 
-setInterval(createHeros, 1000);
+// Guarantee one hero is created before start, so game does not end right away. 
+createHeros();
 
 // Cross-browser support for requestAnimationFrame
 var w = window;
