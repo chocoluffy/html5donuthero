@@ -1,19 +1,29 @@
 var donuts = [];
-var DONUTS_NUMBER = 20;
+var DONUTS_NUMBER = 5;
 
 
 function Donut(){
     this.x=random(0, canvas.width - DONUT_OUTER/2);
-    this.y=random(0, canvas.height - DONUT_OUTER/2);
+    this.y=random(0.2 * canvas.height, canvas.height - DONUT_OUTER/2);
+    this.type=Math.floor(Math.random() * 5) + 1;
     this.eaten=false;
 }
 
+
+
 Donut.prototype.draw = function(){
-    context.beginPath()
-    context.arc(this.x,this.y,DONUT_OUTER,0,1.2 * Math.PI, false); // outer (filled)
-    // the tip of the "pen is now at 0,100
-    context.arc(this.x,this.y,DONUT_INNER,1.2 * Math.PI,Math.PI*2, true); // outer (unfills it)
-    context.fill();
+
+    var cakeImage = new Image();
+    cakeImage.src = "images/cake" + this.type + ".png";
+    cakeWidth = 40;
+    cakeHeight = cakeWidth * 1.5;
+
+    context.beginPath();
+    context.drawImage(cakeImage, this.x, this.y, cakeWidth, cakeHeight);
+    // context.arc(this.x,this.y,DONUT_OUTER,0,1.2 * Math.PI, false); // outer (filled)
+    // context.arc(this.x,this.y,DONUT_INNER,1.2 * Math.PI,Math.PI*2, true); // outer (unfills it)
+    // context.fill();
+    context.closePath();
 }
 
 Donut.prototype.update = function(index){

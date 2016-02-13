@@ -19,7 +19,7 @@ document.getElementById("wrapper").appendChild(canvas);
 
 // Background image
 var bgImage = new Image();
-bgImage.src = "images/background.jpg";
+bgImage.src = "images/cupcake_bg.png";
 
 var monstersCaught = 0;
 var timeRemained = 60;
@@ -40,9 +40,12 @@ var init= function(){
 	var gamestartPlane = document.querySelector(".gamestart");
 	var gamePauseBt = document.querySelector(".pause");
 	var gameLevelOne = document.querySelector(".startpage");
+	var gameOverDiv = document.querySelector(".gameover");
 	gamePauseBt.classList.add('unseen');
 	gameLevelOne.addEventListener('click', function(e){
 		gamestartPlane.classList.add('unseen');
+		gameLevelOne.classList.add('unseen');
+		gameOverDiv.classList.add('unseen');
 		gamePauseBt.classList.remove('unseen');
 		gameStart = true;
 		console.log("gameStart");
@@ -89,7 +92,8 @@ var update = function (modifier) {
 			if(distanceBoxToHero < TAP_RADIUS){
 				// heros.splice(h, 1);
 				deleteList.push(h);
-				console.log(deleteList);
+				console.log("bug is crushed");
+				// console.log(deleteList);
 			}
 		}
 	}
@@ -111,15 +115,15 @@ var render = function () {
 	context.clearRect(0,0,canvas.width, canvas.height);
 	context.drawImage(bgImage, 0, 0);
 
-	var i = particles.length;
-	while(i--){
-		particles[i].draw();
-		particles[i].update(i);
-	}
+	// var i = particles.length;
+	// while(i--){
+	// 	particles[i].draw();
+	// 	particles[i].update(i);
+	// }
 
 	var h = heros.length;
 	while(h--){
-		heros[h].draw();
+		heros[h].draw(context);
 		heros[h].update();
 	}
 
@@ -173,19 +177,20 @@ var main = function () {
 			}
 			var gamePlane = document.querySelector(".gameover");
 			gamePlane.classList.add('seen');
+			gamePlane.classList.remove('unseen');
 		}
 	}
 
 	// normally, clearRect() would be used to clear the canvas
 	// we want to create a trailing effect though
 	// setting the composite operation to destination-out will allow us to clear the canvas at a specific opacity, rather than wiping it entirely
-	context.globalCompositeOperation = 'destination-out';
+	// context.globalCompositeOperation = 'source-over';
 	// decrease the alpha property to create more prominent trails
-	// context.fillStyle = 'rgba(0, 0, 0, 0.5)';
+	// context.fillStyle = 'rgba(0, 0, 0, 0)';
 	// context.fillRect( 0, 0, canvas.width, canvas.height );
 	// change the composite operation back to our main mode
 	// lighter creates bright highlight points as the fireworks and particles overlap each other
-	context.globalCompositeOperation = 'lighter';
+	// context.globalCompositeOperation = 'lighter';
 
 	requestAnimationFrame(main);
 };

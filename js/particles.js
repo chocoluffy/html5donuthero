@@ -94,6 +94,6 @@ function createParticles( x, y, ceilling ) {
     }
     while( particleCount-- ) {
         particles.push( new Particle( x, y ) );
-        console.log("particles:"+ particles.length);
+        // console.log("particles:"+ particles.length);
     }
 }
