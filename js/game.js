@@ -34,7 +34,7 @@ var reset = function () {
 };
 
 var init= function(){
-	// createHeros();
+	createHeros();
 	createDonuts();
 
 	var gamestartPlane = document.querySelector(".gamestart");
@@ -197,7 +197,7 @@ var main = function () {
 	requestAnimationFrame(main);
 };
 
-setInterval(createHeros, 1000);
+// setInterval(createHeros, 1000);
 
 // Cross-browser support for requestAnimationFrame
 var w = window;

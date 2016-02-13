@@ -1,5 +1,6 @@
 var heros = [];
-var HEROS_NUMBER = 1;
+var HEROS_NUMBER = 3;
+var HEROS_GAP = 1024/HEROS_NUMBER;
 
 
 function Hero(){
@@ -56,13 +57,13 @@ function createHeros() {
         var hero = new Hero();
         var distanceFlag = true;
         var heroLength = heros.length;
-        // for(d=0; d<heroLength; d++){
-        //     if(distance(hero, heros[d])<30){distanceFlag = false;}
-        // }
-        // if(true){
+        for(d=0; d<heroLength; d++){
+            if(distance(hero, heros[d])<HEROS_GAP){distanceFlag = false;}
+        }
+        if(true){
             heros.push(hero);
             realCounter += 1;
-        // }
+        }
     }
 }
 
