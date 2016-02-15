@@ -11,13 +11,16 @@ function Hero(){
     randomNumber1to10 = Math.floor(Math.random() * 10) + 1;
     if (randomNumber1to10 <= 4) {
       this.type = 1;
-      this.speed = 1;
+      this.speed = 1.2;
+      this.scoreValue = 1;
     } else if (randomNumber1to10 <= 7) {
       this.type = 2;
-      this.speed = 2;
+      this.speed = 1.5;
+      this.scoreValue = 3;
     } else {
       this.type = 3;
       this.speed = 3;
+      this.scoreValue = 5;
     }
 }
 

@@ -3,8 +3,8 @@ var DONUTS_NUMBER = 5;
 
 
 function Donut(){
-    this.x=random(0, canvas.width - DONUT_OUTER/2);
-    this.y=random(0.2 * canvas.height, canvas.height - DONUT_OUTER/2);
+    this.x=random(0, canvas.width - cakeWidth/2);
+    this.y=random(0.2 * canvas.height, canvas.height - cakeHeight/2);
     this.type=Math.floor(Math.random() * 5) + 1;
     this.eaten=false;
 }
@@ -15,8 +15,6 @@ Donut.prototype.draw = function(){
 
     var cakeImage = new Image();
     cakeImage.src = "images/cake" + this.type + ".png";
-    cakeWidth = 40;
-    cakeHeight = cakeWidth * 1.5;
 
     context.beginPath();
     context.drawImage(cakeImage, this.x, this.y, cakeWidth, cakeHeight);

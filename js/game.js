@@ -5,8 +5,10 @@ var MONSTER_HEIGHT=25;
 var canvas = document.createElement("canvas");
 canvas.classList.add("canvas");
 var context = canvas.getContext("2d");
-canvas.width = 1024;
-canvas.height = 600;
+canvas.width = 600;
+canvas.height = 400;
+var cakeWidth = 40;
+var cakeHeight = cakeWidth * 1.5;
 var DONUT_OUTER = 20;
 var DONUT_INNER = 5;
 var HERO_WIDTH = 5;
@@ -21,7 +23,8 @@ document.getElementById("wrapper").appendChild(canvas);
 var bgImage = new Image();
 bgImage.src = "images/cupcake_bg.png";
 
-var monstersCaught = 0;
+var monstersCaught = DONUTS_NUMBER;
+var currentScore = 0;
 var timeRemained = 60;
 var timeCount = 0;
 var gameOver = false;
@@ -71,7 +74,7 @@ var update = function (modifier) {
 			){
 				donuts[count].eaten = true;
 				createParticles(heros[h].x, heros[h].y, true);
-				++monstersCaught;
+				--monstersCaught;
 				reset();
 			}
 		}
@@ -94,6 +97,7 @@ var update = function (modifier) {
 			if(distanceBoxToHero < TAP_RADIUS){
 				// heros.splice(h, 1);
 				deleteList.push(h);
+				currentScore += heros[h].scoreValue;
 				console.log("bug is crushed");
 				// console.log(deleteList);
 			}
@@ -107,7 +111,7 @@ var update = function (modifier) {
 
 	// if heros array is empty, then gameover.
 	if(heros.length==0){
-		gameOver = true;
+		// gameOver = true;
 	}
 
 };
@@ -145,7 +149,8 @@ var drawScore = function(){
 	context.textAlign = "left";
 	context.textBaseline = "top";
 	context.fillText("Time remained: " + timeRemained, 32, 10);
-	context.fillText("Donut eaten: " + monstersCaught, 32, 42);
+	context.fillText("Donuts left: " + monstersCaught, 32, 42);
+	context.fillText("Player score: " + currentScore, 32, 72);
 }
 
 // The main game loop
