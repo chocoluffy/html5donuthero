@@ -40,10 +40,13 @@ var init= function(){
 	var gamestartPlane = document.querySelector(".gamestart");
 	var gamePauseBt = document.querySelector(".pause");
 	var gameLevelOne = document.querySelector(".startpage");
+	var gameOverDiv = document.querySelector(".gameover");
 	gamePauseBt.classList.add('unseen');
 	gameLevelOne.addEventListener('click', function(e){
 		gamestartPlane.classList.add('unseen');
 		gamePauseBt.classList.remove('unseen');
+		gameLevelOne.classList.add('unseen');
+		gameOverDiv.classList.add('unseen');
 		gameStart = true;
 		console.log("gameStart");
 		e.preventDefault();
