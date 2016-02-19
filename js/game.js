@@ -44,9 +44,9 @@ var init= function(){
 	gamePauseBt.classList.add('unseen');
 	gameLevelOne.addEventListener('click', function(e){
 		gamestartPlane.classList.add('unseen');
+		gamePauseBt.classList.remove('unseen');
 		gameLevelOne.classList.add('unseen');
 		gameOverDiv.classList.add('unseen');
-		gamePauseBt.classList.remove('unseen');
 		gameStart = true;
 		console.log("gameStart");
 		e.preventDefault();
